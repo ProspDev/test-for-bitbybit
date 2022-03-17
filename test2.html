@@ -1,0 +1,32 @@
+<html>
+<body>
+
+<h2 style="color: blue;">JavaScript HTML DOM</h2>
+
+<div id="main">
+<p>Finding HTML Elements by Tag Name</p>
+<p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+</div>
+
+<button id='btn1' onclick="getFirstValue()">Get First P</button>
+<button id='btn2' onclick='getSecondValue()'>Get Second P</button>
+
+<p id="demo"></p>
+
+<script>
+const x = document.getElementById("main");
+const y = x.getElementsByTagName("p");
+
+// document.getElementById("demo").innerHTML = 
+// 'The first paragraph (index 0) inside "main" is: ' + y[0].innerHTML;
+
+const getFirstValue = () => {
+	document.getElementById("demo").innerHTML = y[0].innerHTML;
+};
+const getSecondValue = () => {
+	document.getElementById("demo").innerHTML = y[1].innerHTML;
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <h2>Test1</h2>
+        <input id="text_input" type="text" />
+        <button onclick="searchLongestWord()">Search</button>
+        <p id="demo"></p>
+        <script>
+            const getVowelCount = str => {
+                let vowelsCount = 0;
+                const vowels = ['a', 'e', 'i', 'o', 'u']
+                for(let char of str) {
+                    if(vowels.includes(char)) {
+                        vowelsCount++;
+                    }
+                }
+                return vowelsCount;
+            };
+
+            const searchLongestWord = () => {
+                const text = document.getElementById('text_input').value;
+                let newStr = text.replace(/[^a-zA-Z ]/g, "");
+                let wordArray = newStr.split(' ');
+                let largest = "";
+    
+                // Creating a for...loop to iterate over the array
+                for(let i = 0; i < wordArray.length; i++){
+                    // If the i'th item is greater than largest string 
+                    // then overwrite the largest string with the i'th value
+                    if(wordArray[i].length > largest.length && getVowelCount(wordArray[i]) > getVowelCount(largest)){
+                        largest = wordArray[i]
+                    }
+                }
+                document.getElementById('demo').innerHTML = largest;
+            }
+        </script>
+    </body>
+</html>
